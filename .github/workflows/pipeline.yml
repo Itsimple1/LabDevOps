@@ -31,6 +31,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       
+      - name: Pytest
+        run: pytest --verbosity=2 --showlocals
+      
       - name: Build
         run: pyinstaller --onefile main.py
       
@@ -39,4 +42,4 @@ jobs:
         with:
           name: tg-artifact
           path: dist/
-        
+
