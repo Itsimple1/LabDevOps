@@ -53,6 +53,6 @@ jobs:
         run: |
           pip install black
           black .
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - uses: LabDevOps/git-auto-commit-action@v4
         with:
           commit_message: Apply php-cs-fixer changes
