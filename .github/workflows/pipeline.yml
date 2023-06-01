@@ -36,14 +36,31 @@ jobs:
         run: pyinstaller --onefile main.py
       
       - name: Upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: tg-artifact
-          path: a/
-          retention-days: 1
+          path: dev/
+          retention-days: 5
+          
+  send_telegram:
+    name: send telegram
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: tg-artifact
+      - name: ls 
+        run: ls -la 
+      - name: send telegram message on push
+        uses: appleboy/telegram-action@master
+        with:
+          to: 860893686
+          token: 5927335689:AAFXvEnHaek8VJz61x5-ueYbCT-Pv9jLI6Y
+          document: dev
   
   send_drive:
-    needs: build
+    needs: send_telegram
     runs-on: ubuntu_latest
     steps:
       - name: Checkout code
@@ -63,23 +80,6 @@ jobs:
           folderId: 712399290851-vdlqn3pvilesvmqf6aj1nee0uv86rt32.apps.googleusercontent.com
           name: "archicve.zip"
           overwrite: "true"
-          
-  send_telegram:
-    name: send telegram
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/download-artifact@v3
-        with:
-          name: tg-artifact
-      - name: ls 
-        run: ls -la 
-      - name: send telegram message on push
-        uses: appleboy/telegram-action@master
-        with:
-          to: 860893686
-          token: 5927335689:AAFXvEnHaek8VJz61x5-ueYbCT-Pv9jLI6Y
-          document: hi_*.o
           
   analys_code:
     name: code analysis
