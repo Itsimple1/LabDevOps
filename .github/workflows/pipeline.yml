@@ -45,6 +45,8 @@ jobs:
   fix_code:
     name: make code correct
     runs-on: ubuntu-latest
+    permissions:
+      contents: https://github.com/Itsimple1/LabDevOps.git
     steps:
       - uses: actions/checkout@v2
       - name: Format code with black
@@ -52,8 +54,3 @@ jobs:
           pip install black
           black .
       - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "[Bot] Format code"
-          commit_user_name: Itsimple1
-          commit_user_email: Itsimple1@example.com
-          commit_author: Itsimple1 <Itsimple1@example.com>
