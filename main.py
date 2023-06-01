@@ -4,9 +4,9 @@ import time
 sw = 0
 
 
-def answer(command):
+def answer(com):
     global sw
-    match command:
+    match com:
         case "start":
             sw = time.time()
             print("The stopwatch is running")
@@ -41,11 +41,11 @@ def main():
 
     command = input(">> ")
     while True:
-        match command:
+        match com:
             case "exit":
                 break
             case _:
-                answer(command)
+                answer(com)
         command = input(">> ")
 
 
