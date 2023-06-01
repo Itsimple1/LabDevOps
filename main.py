@@ -41,11 +41,11 @@ def main():
 
     command = input(">> ")
     while True:
-        match com:
+        match command:
             case "exit":
                 break
             case _:
-                answer(com)
+                answer(command)
         command = input(">> ")
 
 
