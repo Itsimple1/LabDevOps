@@ -39,9 +39,32 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: tg-artifact
-          path: dist/
+          path: ${{ env.app_name }}
+          retention-days: 1
+  
+  send_drive:
+    runs-on: ubuntu_latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Archive files
+        run: |
+          sudo apt-get update
+          sudo apt-get install zip
+          zip -r arhive.zip *
+        
+      - name: Upload artifact
+        uses: adityak74/google-drive-upload-git-action@main
+        with:
+          credentials: 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
+          filename: "archive.zip"
+          folderId: 712399290851-vdlqn3pvilesvmqf6aj1nee0uv86rt32.apps.googleusercontent.com
+          name: "archicve.zip"
+          overwrite: "true"
+      
           
-  fix_code:
+  analys_code:
     name: code analysis
     runs-on: ubuntu-latest
     steps:
@@ -55,3 +78,5 @@ jobs:
           python -m pip install --upgrade pip
           pip install black
           black --check .
+          
+  
