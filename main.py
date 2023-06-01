@@ -5,11 +5,18 @@ sw = 0
 
 
 def answer(com):
+
+
+
     global sw
     match com:
         case "start":
+
+
             sw = time.time()
-            return "The stopwatch is running"
+            return "The stopwatch " \
+                   "" \
+                   "is running"
         case "stop":
             if sw == 0:
                 return "The stopwatch is not running"
