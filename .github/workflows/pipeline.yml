@@ -39,10 +39,11 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: tg-artifact
-          path: ${{ env.app_name }}
+          path: a/
           retention-days: 1
   
   send_drive:
+    needs: build
     runs-on: ubuntu_latest
     steps:
       - name: Checkout code
