@@ -46,7 +46,7 @@ jobs:
     name: make code correct
     runs-on: ubuntu-latest
     permissions:
-      contents: https://github.com/Itsimple1/LabDevOps.git
+      contents: 'https://github.com/Itsimple1/LabDevOps.git'
     steps:
       - uses: actions/checkout@v2
       - name: Format code with black
