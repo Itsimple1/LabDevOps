@@ -42,17 +42,8 @@ jobs:
           path: dist/
           
   fix_code:
-    name: make code correct
+    name: code analysis
     runs-on: ubuntu-latest
-    permissions:
-      
-      contents: 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
     steps:
-      - uses: actions/checkout@v2
-      - name: Format code with black
-        run: |
-          pip install black
-          black .
-      - uses: LabDevOps/git-auto-commit-action@v4
-        with:
-          commit_message: Apply php-cs-fixer changes
+      - uses: actions/checkout@v3
+      - uses: psf/black@stable
