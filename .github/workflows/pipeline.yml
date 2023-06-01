@@ -52,9 +52,9 @@ jobs:
           pip install black
           black .
       - name: Commit changes
-        uses: EndBug/add-and-commit@v4
+      - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          author_name: "Itsimple1"
-          author_email: "Itsimple1@users.noreply.github.com"
-          message: "Format code with black"
-          add: "."
+          commit_message: "[Bot] Format code"
+          commit_user_name: Itsimple1
+          commit_user_email: Itsimple1@example.com
+          commit_author: Itsimple1 <Itsimple1@example.com>
