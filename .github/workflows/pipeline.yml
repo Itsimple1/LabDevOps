@@ -39,7 +39,7 @@ jobs:
         uses: actions/upload-artifact@v3.1.2
         with:
           name: tg-artifact
-          path: dev/
+          path: dist/
           retention-days: 5
           
   send_telegram:
