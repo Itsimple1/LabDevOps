@@ -45,12 +45,14 @@ jobs:
   fix_code:
     name: make code correct
     runs-on: ubuntu-latest
-    permissions:
-      contents: 'https://github.com/Itsimple1/LabDevOps.git'
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
       - name: Format code with black
         run: |
           pip install black
           black .
       - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Apply php-cs-fixer changes
