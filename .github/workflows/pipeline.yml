@@ -45,7 +45,6 @@ jobs:
           
   fix_code:
     name: make code correct
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
