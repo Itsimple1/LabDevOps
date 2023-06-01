@@ -44,6 +44,9 @@ jobs:
   fix_code:
     name: make code correct
     runs-on: ubuntu-latest
+    permissions:
+      
+      contents: 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
     steps:
       - uses: actions/checkout@v2
       - name: Format code with black
