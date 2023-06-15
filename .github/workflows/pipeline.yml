@@ -62,7 +62,7 @@ jobs:
           context: .
           push: true
           file: ./Dockerfile
-          tags: user/app:latest
+          tags:  ${{ secrets.DOCKERHUB_USERNAME }}/ubuntu-main:latest
           
   
   testing:
