@@ -75,7 +75,7 @@ jobs:
 
       - name: Run docker container
         run: |
-          docker run -it ${{ secrets.DOCKERHUB_USERNAME }}/testdev:latest
+          docker run -ti ${{ secrets.DOCKERHUB_USERNAME }}/testdev:latest
   
   
   testing:
