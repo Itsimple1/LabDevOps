@@ -65,7 +65,7 @@ jobs:
           
           
   deploy_on_local:
-    name: Deploy
+    name: Deploy on PC
     runs-on: self-hosted
     needs: docker_app
 
