@@ -41,6 +41,22 @@ jobs:
           name: tg-artifact
           path: dist/
           retention-days: 5
+  
+  testing:
+    name: test code
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.11
+      
+      - name: Pytest
+        run: |
+          python pip install pytest
+          pytest --verbosity=2 --showlocals
+          
           
   send_telegram:
     name: send telegram
