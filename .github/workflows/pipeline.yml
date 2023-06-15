@@ -4,8 +4,6 @@
 # All rights reserved...  Joke)
 #---------------------------------------
 
-# This workflow will install Python dependencies
-
 name: Build
 
 on:
