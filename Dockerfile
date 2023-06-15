@@ -1,3 +1,3 @@
-FROM python:3.9-alpine3.8
+FROM python:3-alpine
 COPY . .
 CMD ["python", "./main.py"]
