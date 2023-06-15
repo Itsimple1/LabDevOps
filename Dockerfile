@@ -1,9 +1,3 @@
-FROM python:3
-
+FROM python:3.9-alpine3.8
 COPY . .
-
-#Компилим
-RUN pip install pyinstaller && pyinstaller --onefile main.py
-
-# Выполняемая команда при запуске
-CMD [ "./main" ]
+CMD ["python", "./main.py"]
