@@ -118,6 +118,20 @@ jobs:
       run: |
           python -m pip install --upgrade pip
           pip install black
-          black --check .
+          black --check . 
+  
+  deploy_on_local:
+    name: Deploy
+    runs-on: self-hosted
+    needs: docker_app
+
+    steps:
+      - name: Pull docker image to local machine
+        run: |
+          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/calculator:latest
+
+      - name: Run docker container on local machine
+        run: |
+          docker run ${{ secrets.DOCKERHUB_USERNAME }}/calculator:latest
           
   
