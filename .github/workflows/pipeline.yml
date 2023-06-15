@@ -61,8 +61,23 @@ jobs:
           context: .
           push: true
           file: ./Dockerfile
-          tags:  ${{ secrets.DOCKERHUB_USERNAME }}/testmain:latest
+          tags:  ${{ secrets.DOCKERHUB_USERNAME }}/testdev:latest
           
+          
+  deploy_on_local:
+    name: Deploy
+    runs-on: self-hosted
+    needs: docker_app
+
+    steps:
+      - name: Pull docker image
+        run: |
+          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/testdev:latest
+
+      - name: Run docker container
+        run: |
+          docker run -it ${{ secrets.DOCKERHUB_USERNAME }}/testdev:latest
+  
   
   testing:
     name: Code Testing
@@ -118,18 +133,6 @@ jobs:
           pip install black
           black --check . 
   
-  deploy_on_local:
-    name: Deploy
-    runs-on: self-hosted
-    needs: docker_app
 
-    steps:
-      - name: Pull docker image
-        run: |
-          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/testmain:latest
-
-      - name: Run docker container
-        run: |
-          docker run -it ${{ secrets.DOCKERHUB_USERNAME }}/testmain:latest
           
   
