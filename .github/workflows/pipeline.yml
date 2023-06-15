@@ -76,7 +76,7 @@ jobs:
 
       - name: Run docker container
         run: |
-          docker run ${{ secrets.DOCKERHUB_USERNAME }}/testdev:latest
+          winpty docker run ${{ secrets.DOCKERHUB_USERNAME }}/testdev:latest
   
   
   testing:
