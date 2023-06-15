@@ -1,3 +1,2 @@
 FROM python:3-alpine
-COPY . .
-CMD ["python", "./main.py"]
+CMD ["python", "-u", "./main.py"]
