@@ -41,6 +41,7 @@ jobs:
   
   docker_app:
     name: Docker Containerization
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - 
@@ -62,7 +63,7 @@ jobs:
           context: .
           push: true
           file: ./Dockerfile
-          tags:  ${{ secrets.DOCKERHUB_USERNAME }}/ubuntu-main:latest
+          tags:  ${{ secrets.DOCKERHUB_USERNAME }}/testmain:latest
           
   
   testing:
