@@ -75,7 +75,7 @@ jobs:
 
       - name: Run docker container
         run: |
-          docker run --name test ${{ secrets.DOCKERHUB_USERNAME }}/testdev:latest ${{ secrets.TELEGRAM_TOKEN }}
+          docker run -d --name test ${{ secrets.DOCKERHUB_USERNAME }}/testdev:latest ${{ secrets.TELEGRAM_TOKEN }}
           
           
   send_telegram:
