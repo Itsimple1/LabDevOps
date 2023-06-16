@@ -82,9 +82,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/download-artifact@v3
-        with:
-          name: tg-artifact
       - name: ls 
         run: ls -la 
       - name: send telegram message on push
