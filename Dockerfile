@@ -1,4 +1,4 @@
-FROM python:3-alpine
-COPY main.py main.py
-COPY im.py im.py
-CMD ["python3", "im.py"]
+FROM python
+RUN pip install aiogram==2.25.1
+COPY . .
+CMD ["python3", "bot.py"]
