@@ -31,7 +31,7 @@ jobs:
         uses: actions/upload-artifact@v3.1.2
         with:
           name: tg-artifact
-          path: /bot.py
+          path: /app
           retention-days: 5
   
   docker_app:
