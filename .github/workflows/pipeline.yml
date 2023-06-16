@@ -30,8 +30,8 @@ jobs:
       - name: Upload
         uses: actions/upload-artifact@v3.1.2
         with:
-          name: tg-artifact
-          path: app/
+          name: artifact
+          path: ./app/
           retention-days: 5
   
   docker_app:
@@ -90,7 +90,7 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          document: app/bot.py
+          document: ./app/bot.py
           message: |
             ${{ github.actor }} created commit:
             Commit message: ${{ github.event.commits[0].message }}
