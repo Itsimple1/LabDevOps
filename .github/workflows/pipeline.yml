@@ -31,7 +31,7 @@ jobs:
         uses: actions/upload-artifact@v3.1.2
         with:
           name: tg-artifact
-          path: ./app/
+          path: app/
           retention-days: 5
   
   docker_app:
@@ -80,6 +80,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - uses: actions/download-artifact@v3
         with:
           name: tg-artifact
@@ -90,7 +91,7 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          document: ./app/bot.py
+          document: app/bot.py
           message: |
             ${{ github.actor }} created commit:
             Commit message: ${{ github.event.commits[0].message }}
