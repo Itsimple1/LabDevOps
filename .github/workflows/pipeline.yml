@@ -68,6 +68,7 @@ jobs:
     steps:
       - name: Pull docker image
         run: |
+          docker stop test && docker rm test
           docker pull ${{ secrets.DOCKERHUB_USERNAME }}/testdev:latest
 
       - name: Run docker container
