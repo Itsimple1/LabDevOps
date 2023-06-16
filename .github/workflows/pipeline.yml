@@ -3,8 +3,7 @@
 
 # All rights reserved...  Joke)
 #---------------------------------------
-
-name: Build
+name: Build-Deploy
 
 on:
   push:
